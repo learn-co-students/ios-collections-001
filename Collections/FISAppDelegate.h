@@ -12,10 +12,33 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-/**
- 
- * Declare your methods here.
- 
- */
+-(NSArray *)arrayByAscendingSortingArray:(NSArray *)arr;
+
+-(NSArray *) arrayByDescendingSortingArray:(NSArray *)arr;
+
+-(NSArray *)arrayBySwappingFirstObjectWithLastObjectInArray:(NSArray*)arr;
+
+-(NSArray *)arrayByReversingArray:(NSArray *)arr;
+
+-(NSString *)stringInBasicLeetFromString:(NSString *)str;
+
+-(NSArray *)bisectArrayAt0:(NSArray *)arr;
+
+-(NSArray *)arrayByFilteringHobbitsFromDictionary:(NSDictionary *)dic;
+
+-(NSArray *)arrayByFilteringStringsBeginningWithA:(NSArray *)arr;
+
+-(NSInteger) sumOfIntegerNumbersInArray:(NSArray *)arr;
+
+-(NSArray *)arrayByPluralizingStringsInArray:(NSArray *)arr;
+
+-(NSDictionary *)countsOfWordsInString:(NSString *)str;
+
+-(NSDictionary *)dictionaryOfSongsByArtistFromArray:(NSArray *)arr;
+
+
+
+
+
 
 @end
