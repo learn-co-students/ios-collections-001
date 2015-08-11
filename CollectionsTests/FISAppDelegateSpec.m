@@ -216,7 +216,7 @@ describe(@"FISAppDelegate", ^{
         it(@"returns an array with the correct names of the hobbits", ^{
             NSArray *hobbits = [appDelegate arrayByFilteringHobbitsFromDictionary:fellowshipOfTheRing];
             
-            expect(hobbits).to.beSupersetOf(@[@"Frodo", @"Sam", @"Merry", @"Pippin"]);
+            expect(hobbits).to.beSupersetOf(@[@"Sam", @"Legolas", @"Aragorn", @"Gandalf"]);
         });
 
     });
