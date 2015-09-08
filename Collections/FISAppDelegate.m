@@ -76,8 +76,8 @@
     
     NSMutableArray *splitArray = [[NSMutableArray alloc]init];
     
-    NSPredicate *negativePredicate = [NSPredicate predicateWithFormat:@"self < 0"]; //set <= doesn't pass one of the tests
-    NSPredicate *positivePredicate = [NSPredicate predicateWithFormat:@"self > 0"];
+    NSPredicate *negativePredicate = [NSPredicate predicateWithFormat:@"self < 0"];
+    NSPredicate *positivePredicate = [NSPredicate predicateWithFormat:@"self >= 0"];
     
     [splitArray addObject:[array filteredArrayUsingPredicate:negativePredicate]];
     [splitArray addObject:[array filteredArrayUsingPredicate:positivePredicate]];
