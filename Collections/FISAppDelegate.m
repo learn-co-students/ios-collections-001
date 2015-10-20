@@ -149,12 +149,25 @@
 -(NSDictionary *)songsGroupedByArtistFromArray:(NSArray *)songList {
     
     NSMutableDictionary *songsByArtist = [[NSMutableDictionary alloc] init];
-    NSMutableArray *songs = [[NSMutableArray alloc] init];
     
     for (NSString *song in songList) {
         NSArray *keyValueArray = [song componentsSeparatedByString:@" - "];
-        [songs addObject:keyValueArray[1]];
-        [songsByArtist setObject:songs forKey:keyValueArray[0]];
+        NSString *artist = keyValueArray[0];
+        NSString *song = keyValueArray[1];
+        
+        
+        NSArray *currentSongs = [songsByArtist objectForKey:artist];
+        
+        if (currentSongs == nil || [currentSongs count] == 0) {
+            songsByArtist[artist] = [@[song] mutableCopy];
+        } else {
+            [songsByArtist[artist] addObject:song];
+        }
+    }
+    
+    for (NSString *artist in [songsByArtist allKeys]) {
+        NSArray *sortedSongs = [self arrayBySortingArrayAscending:songsByArtist[artist]];
+        [songsByArtist setObject:sortedSongs forKey:artist];
     }
     
     return songsByArtist;
