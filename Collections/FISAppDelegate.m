@@ -50,7 +50,18 @@
 }
 
 - (NSString *)stringInBasicLeetFromString:(NSString *)string {
-    return nil;
+    NSString *leetString = @"";
+    NSDictionary *leetHash = @{@"a" : @"4", @"s" : @"5", @"i" : @"1", @"l" : @"1", @"e" : @"3", @"t" : @"7"};
+    for (NSInteger i = 0; i < [string length]; i++) {
+        char character = [string characterAtIndex:i];
+        NSString *sCharacter = [NSString stringWithFormat:@"%c", character];
+        if (leetHash[sCharacter]) {
+            leetString = [leetString stringByAppendingString:leetHash[sCharacter]];
+        } else {
+            leetString = [leetString stringByAppendingString:sCharacter];
+        }
+    }
+    return leetString;
 }
 
 - (NSArray *)splitArrayIntoNegativesAndPositives:(NSArray *)array {
