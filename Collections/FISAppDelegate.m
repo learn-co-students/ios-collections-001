@@ -27,7 +27,17 @@
 }
 
 - (NSArray *)arrayBySwappingFirstObjectWithLastObjectInArray:(NSArray *)array {
-    return nil;
+    NSMutableArray *reorderedArray = [[NSMutableArray alloc] init];
+    for(NSUInteger i = 0; i < [array count]; i++) {
+        if (i == 0){
+            [reorderedArray addObject:array[[array count] - 1]];
+        } else if (i == [array count] - 1) {
+            [reorderedArray addObject:array[0]];
+        } else {
+            [reorderedArray addObject:array[i]];
+        }
+    }
+    return reorderedArray;
 }
 
 - (NSArray *)arrayByReversingArray:(NSArray *)array {
