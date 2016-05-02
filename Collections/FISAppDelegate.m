@@ -11,11 +11,19 @@
 }
 
 - (NSArray *)arrayBySortingArrayAscending:(NSArray *)array {
-    return nil;
+    NSSortDescriptor *sortArrayAsc = [NSSortDescriptor sortDescriptorWithKey:nil
+                                                                   ascending:YES];
+
+    NSArray *ascArray = [array sortedArrayUsingDescriptors:@[sortArrayAsc]];
+    return ascArray;
 }
 
 - (NSArray *)arrayBySortingArrayDescending:(NSArray *)array {
-    return nil;
+    NSSortDescriptor *sortArrayDesc = [NSSortDescriptor sortDescriptorWithKey:nil
+                                                                   ascending:NO];
+
+    NSArray *descArray = [array sortedArrayUsingDescriptors:@[sortArrayDesc]];
+    return descArray;
 }
 
 - (NSArray *)arrayBySwappingFirstObjectWithLastObjectInArray:(NSArray *)array {
