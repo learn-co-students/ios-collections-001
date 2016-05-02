@@ -65,7 +65,17 @@
 }
 
 - (NSArray *)splitArrayIntoNegativesAndPositives:(NSArray *)array {
-    return nil;
+    NSMutableArray *positives = [[NSMutableArray alloc] init];
+    NSMutableArray *negatives = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < [array count] ; i++) {
+        if ([array[i] intValue] < 0) {
+            [negatives addObject:array[i]];
+        } else {
+            [positives addObject:array[i]];
+        }
+    }
+    NSArray *result = @[negatives, positives];
+    return result;
 }
 
 - (NSArray *)namesOfHobbitsInDictionary:(NSDictionary *)dictionary {
