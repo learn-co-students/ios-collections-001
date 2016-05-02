@@ -148,7 +148,23 @@
 }
 
 - (NSDictionary *)songsGroupedByArtistFromArray:(NSArray *)array {
-    return nil;
+    NSMutableDictionary *songsByArtist = [[NSMutableDictionary alloc] init];
+    NSSortDescriptor *sortByNameAsc = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES selector:@selector(caseInsensitiveCompare:) ];
+    for (NSInteger i = 0; i < [array count]; i++) {
+        NSArray *items = [array[i] componentsSeparatedByString:@" - "];
+        NSString *artist = items[0];
+        NSString *song = items[1];
+        if ([songsByArtist objectForKey:artist]) {
+            NSMutableArray *songs = [songsByArtist[artist] mutableCopy];
+            [songs addObject:song];
+            NSArray *alphabetizedSongs = [songs sortedArrayUsingDescriptors:@[sortByNameAsc]];
+            songsByArtist[artist] = alphabetizedSongs;
+        } else {
+            songsByArtist[artist] = @[song];
+        }
+    }
+
+    return songsByArtist;
 }
 
 @end
