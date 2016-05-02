@@ -96,7 +96,11 @@
 }
 
 - (NSInteger)sumOfIntegersInArray:(NSArray *)array {
-    return nil;
+    NSUInteger result = 0;
+    for (NSUInteger i = 0; i < [array count]; i++) {
+        result += [array[i] intValue];
+    }
+    return result;
 }
 
 - (NSArray *)arrayByPluralizingStringsInArray:(NSArray *)array {
