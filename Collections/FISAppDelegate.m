@@ -41,7 +41,12 @@
 }
 
 - (NSArray *)arrayByReversingArray:(NSArray *)array {
-    return nil;
+    NSMutableArray *reversedArray = [[NSMutableArray alloc] init];
+    NSInteger arrayLength = [array count];
+    for(NSUInteger i = 1; i <= arrayLength; i++) {
+        [reversedArray addObject:array[arrayLength - i]];
+    }
+         return reversedArray;
 }
 
 - (NSString *)stringInBasicLeetFromString:(NSString *)string {
