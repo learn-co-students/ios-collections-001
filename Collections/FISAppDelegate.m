@@ -79,7 +79,14 @@
 }
 
 - (NSArray *)namesOfHobbitsInDictionary:(NSDictionary *)dictionary {
-    return nil;
+    NSArray*creatures = [dictionary allKeys];
+    NSMutableArray *hobbits = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < [creatures count]; i++) {
+        if ([dictionary[creatures[i]] isEqualToString:@"hobbit"]) {
+            [hobbits addObject:creatures[i]];
+        }
+    }
+    return hobbits;
 }
 
 - (NSArray *)stringsBeginningWithAInArray:(NSArray *)array {
