@@ -126,7 +126,25 @@
 }
 
 - (NSDictionary *)countsOfWordsInString:(NSString *)string {
-    return nil;
+    NSMutableDictionary *wordCounts = [[NSMutableDictionary alloc] init];
+    NSArray *wordArray = [string componentsSeparatedByString:@" "];
+    for (NSInteger i = 0; i < [wordArray count]; i++) {
+        NSString *word = [wordArray[i] lowercaseString];
+        for (NSInteger j = 0; j < [word length]; j++) {
+            word = [word stringByReplacingOccurrencesOfString:@"." withString:@""];
+            word = [word stringByReplacingOccurrencesOfString:@"," withString:@""];
+            word = [word stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            word = [word stringByReplacingOccurrencesOfString:@";" withString:@""];
+        }
+        if ([[wordCounts allKeys] containsObject:word]) {
+            NSUInteger curVal = [wordCounts[word] integerValue];
+            curVal++;
+            wordCounts[word] = @(curVal);
+        } else {
+            wordCounts[word] = @1;
+        }
+    }
+    return wordCounts;
 }
 
 - (NSDictionary *)songsGroupedByArtistFromArray:(NSArray *)array {
