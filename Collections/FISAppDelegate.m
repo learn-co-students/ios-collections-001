@@ -104,7 +104,25 @@
 }
 
 - (NSArray *)arrayByPluralizingStringsInArray:(NSArray *)array {
-    return nil;
+    NSMutableArray *plurals = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < [array count]; i++) {
+        if ([array[i] isEqualToString:@"foot"]) {
+            [plurals addObject:@"feet"];
+        } else if ([array[i] isEqualToString:@"box"]) {
+            [plurals addObject:@"boxes"];
+        } else if ([array[i] isEqualToString:@"ox"]) {
+            [plurals addObject:@"oxen"];
+        } else if ([array[i] isEqualToString:@"radius"]) {
+            [plurals addObject:@"radii"];
+        } else if ([array[i] isEqualToString:@"trivium"]) {
+            [plurals addObject:@"trivia"];
+        } else {
+            NSString *newString = array[i];
+            newString = [newString stringByAppendingString:@"s"];
+            [plurals addObject:newString];
+        }
+    }
+    return plurals;
 }
 
 - (NSDictionary *)countsOfWordsInString:(NSString *)string {
