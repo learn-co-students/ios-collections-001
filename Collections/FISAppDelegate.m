@@ -90,7 +90,9 @@
 }
 
 - (NSArray *)stringsBeginningWithAInArray:(NSArray *)array {
-    return nil;
+    NSPredicate* startsWithAPredicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH[c] 'a'"];
+    NSArray *namesStartWithA = [array filteredArrayUsingPredicate:startsWithAPredicate];
+    return namesStartWithA;
 }
 
 - (NSInteger)sumOfIntegersInArray:(NSArray *)array {
